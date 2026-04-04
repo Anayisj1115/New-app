@@ -1,0 +1,61 @@
+<style>
+  body {
+    background-color: black;
+    color:#00ff00;
+    font-family: monospace;
+    text-align: center;
+    padding-top: 50px;
+  }
+
+  #game-container {
+    border: 2px solid #00ff00;
+    display: inline-block;
+    padding: 20px;
+  }
+</style>
+
+<div id="game-container">
+  <h1 id="title">THE LAST APEX PREDATOR</h1>
+  <h2 id="health-display">Health: 100</h2>
+  <p id="story-text">Loading game.....</p>
+</div>
+<script> 
+  let health = 100;
+  let healthBox =document.getElementById("health-display");
+  let inventory = [];
+let name = prompt("Identify yourself");
+document.getElementById("story-text").innerText ="Welcome, " + name + ". The hunt begins.";
+let action = prompt("You are standing in the ruins of a steel city. You hear a mechanical growl to your 'right'. To your 'left' is a dark tunnel. Where do you go?");
+let choice = action.toLowerCase();  
+if(choice === "right") {
+  alert("A massive creature of rusted steel and pulsing red wires blocks your path. it has six legs and a jaw that drips with motor oil.You've found a 'Click-Shambler'. ");
+  let fightChoice = prompt("The Click Shambler lets out a series of sharp mennising clicks and lunges! Do you 'Strike' or 'dodge'?");
+  fightChoice = fightChoice.toLowerCase();
+  if (fightChoice === "strike"){
+      health = health - 20;
+      healthBox.innerText = "Health" + health;
+        document.getElementById("story-text").innerText = "You plunge your blade into its glowing red core! The beast starts to spark and blows up, leaving you drnched in motor oil. You are the superior predator!";
+  } else if(fightChoice ==="dodge") {
+    document.getElementById("story-text").innerText = "You roll beneath its heavy claws. It crashes into a wall, giving you time to slip away into the ruins.";
+  }else{
+    health = 0;
+    healthBox.innerText = "Health: 0";
+    document.getElementById("story-text").innerText = "You froze in fear. The Click Shambler didn't hesitate. Your hunt ends here.";
+  }
+}
+ else if (choice === "left") {
+  inventory.push("Silk invisibility Cloak");
+  document.getElementById("story-text").innerText ="You find a discarded silk invisiblity Cloak! You vanish into the dark muggy atmosphere of the tunnel.";
+  let tunnelAction = prompt("Red laser beams begin to sweep the tunnel walls. A big red eye is serching for movement. Do you 'activiate' the cloak or 'freeze'?");
+  let tunnelChoice = tunnelAction.toLowerCase();
+  if (tunnelChoice === "activate") {
+     document.getElementById("story-text").innerText = "The silk ripples ture clear. The lasers pass you with clean precision.";
+  } else if (tunnelChoice === "freeze") {
+    health = health - 40;
+    healthBox.innerText = "Health:" + health;
+    document.getElementById("story-text").innerText = " The laser locks on you!A hot beam grazes your shulder before you dive to the side, knocking into a bolder.";
+  } else {
+          document.getElementById("story-text").innerText = "you stumble into a beam and barely escape thee fire. Your playing more like prey than predator."; 
+  }
+} 
+  </script>
