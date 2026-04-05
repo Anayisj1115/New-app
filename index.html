@@ -24,7 +24,7 @@
   let healthBox =document.getElementById("health-display");
   let inventory = [];
 let name = prompt("Identify yourself");
-alert("Identity Confermed. Welcome, " + name +".");
+alert("Identity Confirmed. Welcome, " + name +".");
 alert("MISSION OBJECTIVE: Locate and neutralize the strongest predators of the city and become the 'Apex Predator'. Failure is NOT an option.");     
 document.getElementById("story-text").innerText =" " + name + ". The hunt begins.";
 let action = prompt("You are standing in the ruins of a steel city. You hear a mechanical growl to your 'right'. To your 'left' is a dark tunnel. Where do you go?");
@@ -51,6 +51,7 @@ if(choice === "right") {
   let tunnelAction = prompt("Red laser beams begin to sweep the tunnel walls. A big red eye is serching for movement. Do you 'activiate' the cloak or 'freeze'?");
   let tunnelChoice = tunnelAction.toLowerCase();
   if (tunnelChoice === "activate") {
+      alert("The cloak hums to life. You become a shadow in the dark.");
      document.getElementById("story-text").innerText = "The silk ripples ture clear. The lasers pass you with clean precision.";
   } else if (tunnelChoice === "freeze") {
     health = health - 40;
