@@ -65,9 +65,14 @@ if(choice === "right") {
      alert("CRITICAL FALURE.");
      document.getElementById("story-text").innerText = "The city has claimed another victim. "+ name + " is no longer THE APEX PREDATOR. GAME OVER";
      healthBox.style.color = "red";
-  } else if (health > 0) {
-      alert("MISSION COMPLETE: Status - Apex Predator.");
-      document.getElementById("story-text").innerText="Total dominance. You are the true Apex predator of this steel wasteland.............For now";
+  } else if (health > 0 && health < 100) {
+      alert("MISSION COMPLETE: Status - Wounded Survivor.");
+      document.getElementById("story-text").innerText="You survived the encounter," + name + ", but you leave the ruins limping and scared. The city almost broke you.";
+      healthBox.style.color = "orange";
+  }
+  else if (health === 100){
+      alert(MISSION COMPLETE: Status - Apex predator.");
+      document.getElementById("story-text").innerText = "Total dominance. You moved through the steel city like a stealth king. You are the Apex Predator..... For now :)";
       healthBox.style.color = "gold";
   }
   </script>
