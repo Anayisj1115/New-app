@@ -24,7 +24,9 @@
   let healthBox =document.getElementById("health-display");
   let inventory = [];
 let name = prompt("Identify yourself");
-document.getElementById("story-text").innerText ="Welcome, " + name + ". The hunt begins.";
+alert("Identity Confermed. Welcome, " + name +".");
+alert("MISSION OBJECTIVE: Locate and neutralize the strongest predators of the city and become the 'Apex Predator'. Failure is NOT an option.");     
+document.getElementById("story-text").innerText =" " + name + ". The hunt begins.";
 let action = prompt("You are standing in the ruins of a steel city. You hear a mechanical growl to your 'right'. To your 'left' is a dark tunnel. Where do you go?");
 let choice = action.toLowerCase();  
 if(choice === "right") {
@@ -33,7 +35,7 @@ if(choice === "right") {
   fightChoice = fightChoice.toLowerCase();
   if (fightChoice === "strike"){
       health = health - 20;
-      healthBox.innerText = "Health" + health;
+      healthBox.innerText = "Health: " + health;
         document.getElementById("story-text").innerText = "You plunge your blade into its glowing red core! The beast starts to spark and blows up, leaving you drnched in motor oil. You are the superior predator!";
   } else if(fightChoice ==="dodge") {
     document.getElementById("story-text").innerText = "You roll beneath its heavy claws. It crashes into a wall, giving you time to slip away into the ruins.";
@@ -58,4 +60,13 @@ if(choice === "right") {
           document.getElementById("story-text").innerText = "you stumble into a beam and barely escape thee fire. Your playing more like prey than predator."; 
   }
 } 
+  if (health <= 0){
+     alert("CRITICAL FALURE.");
+     document.getElementById("story-text").innerText = "The city has claimed another victim. "+ name + " "is no longer THE APEX PREDATOR. GAME OVER";
+     healthBox.style.color = "red";
+  } else if (health > 0) {
+      alert("MISSION COMPLETE: Status - Apex Predator.");
+      document.getElementById("story-text").innerText="Total dominance. You are the true Apex predator of this steel wasteland.............For now";
+      healthBox.style.color = "gold";
+  }
   </script>
